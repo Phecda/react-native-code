@@ -1,7 +1,7 @@
 {
   "name": "@phecdas/react-native-code",
   "title": "React Native Code",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Toolbox for QRcode/barcode scanning, generating.",
   "main": "bin/index.js",
   "types": "bin/index.d.ts",
