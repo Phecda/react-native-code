@@ -1,7 +1,7 @@
 {
   "name": "@phecdas/react-native-code",
   "title": "React Native Code",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Toolbox for QRcode/barcode scanning, generating.",
   "main": "bin/index.js",
   "types": "bin/index.d.ts",
@@ -30,12 +30,14 @@
   "readmeFilename": "README.md",
   "peerDependencies": {
     "react": "^16.8.1",
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
+    "react-native": ">=0.60.0-rc.0 <1.0.x",
+    "react-native-svg": "^12.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@react-native-community/eslint-config": "^0.0.7",
+    "@types/qrcode": "^1.3.4",
     "@types/react-native": "^0.61.23",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
@@ -65,5 +67,9 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix"
+  },
+  "dependencies": {
+    "jsbarcode": "^3.11.0",
+    "qrcode": "^1.4.4"
   }
 }
