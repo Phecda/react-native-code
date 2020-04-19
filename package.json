@@ -2,10 +2,14 @@
   "name": "@phecdas/react-native-code",
   "title": "React Native Code",
   "version": "1.0.0",
-  "description": "TODO",
-  "main": "index.js",
+  "description": "Toolbox for QRcode/barcode scanning, generating.",
+  "main": "bin/index.js",
+  "types": "bin/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "git-cz",
+    "release": "standard-version",
+    "lint": "eslint ./src --fix --ext .ts,.tsx",
+    "build": "tsc; eslint ./bin --fix --ext .ts,.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +17,9 @@
     "baseUrl": "https://github.com/Phecda/react-native-code"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "barcode",
+    "qrcode"
   ],
   "author": {
     "name": "phecda",
@@ -27,7 +33,37 @@
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@react-native-community/eslint-config": "^0.0.7",
+    "@types/react-native": "^0.61.23",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2",
     "react": "^16.9.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.61.5",
+    "standard-version": "^7.1.0",
+    "typescript": "^3.8.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix"
   }
 }
