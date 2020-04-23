@@ -73,6 +73,9 @@ export interface QRCodeProps {
   backgroundColor: string;
   quietZone: number;
   ecl: 'low' | 'medium' | 'quartile' | 'high' | 'L' | 'M' | 'Q' | 'H';
+  /**
+   * should wrapped in useCallback
+   */
   onError: (error: any) => void;
 }
 
@@ -102,8 +105,7 @@ export const QRCode = ({
         throw error;
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, size, ecl]);
+  }, [value, size, ecl, onError]);
 
   if (!result) {
     return null;
